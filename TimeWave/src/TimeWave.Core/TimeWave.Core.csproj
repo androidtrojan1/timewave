@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\TimeWave.Shared\TimeWave.Shared.csproj" />
+  </ItemGroup>
+
+  <!-- netstandard2.1 + C# 9 so the engine can also run embedded inside Unity. -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="TimeWave.Tests" />
+  </ItemGroup>
+
+  <!-- Release builds refresh the engine DLLs inside the Unity client project. -->
+  <Target Name="CopyToUnity" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+    <Copy SourceFiles="$(TargetPath);$(OutDir)TimeWave.Shared.dll" DestinationFolder="$(MSBuildThisFileDirectory)..\..\unity\TimeWaveClient\Assets\Plugins\TimeWave" SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>

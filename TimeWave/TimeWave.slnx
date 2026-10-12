@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/TimeWave.ConsoleClient/TimeWave.ConsoleClient.csproj" />
+    <Project Path="src/TimeWave.Core/TimeWave.Core.csproj" />
+    <Project Path="src/TimeWave.Server/TimeWave.Server.csproj" />
+    <Project Path="src/TimeWave.Shared/TimeWave.Shared.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/TimeWave.Tests/TimeWave.Tests.csproj" />
+  </Folder>
+</Solution>
